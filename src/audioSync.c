@@ -33,7 +33,7 @@ int main()
 	}
 
 	// Add the signal match for volume changes
-	dbus_bus_add_match(conn, "type='signal',interface='org.freedesktop.DBus.Properties',path='/org/bluez/hci0/dev_" MAC "/fd1',arg0='org.bluez.MediaTransport1'", &err);
+	dbus_bus_add_match(conn, "type='signal',interface='org.freedesktop.DBus.Properties',path_namespace='/org/bluez/hci0/dev_" MAC "',arg0='org.bluez.MediaTransport1'", &err);
 	if(dbus_error_is_set(&err))
 	{
 		fprintf(stderr, "Could not add signal match!\n%s\n", err.message);
